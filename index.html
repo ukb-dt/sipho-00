@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!-- html, head, body[header, main, footer] -->
+<html lang="en" data-theme="dark">
+<!-- head, body[header, main, footer] -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ukhona — Z-Trajectory: The Calculus of Vitality</title>
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="description" content="From Stone to Digital Twin: Measuring the Will to Power through Z-Score Trajectories" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="ukhona/css/head.css" rel="stylesheet" />
+  <script src="ukhona/js/mathjax.js"></script>
+  <script id="MathJax-script" defer
+     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    .hero-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+      border-radius: 20px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .hero-section h1 {
+      font-size: 3.5em;
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-section p {
+      font-size: 1.3em;
+      opacity: 0.9;
+      font-style: italic;
+    }
+    
+    .equation-box {
+      background: var(--card-bg, #1a1a24);
+      border: 2px solid var(--accent, #6366f1);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      text-align: center;
+      font-size: 1.2em;
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+      overflow-x: auto;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .hero-section h1 {
+        font-size: 2.5em;
+      }
+    }
+    
+    .highlight-box {
+      background: rgba(99, 102, 241, 0.1);
+      border-left: 4px solid var(--accent, #6366f1);
+      padding: 25px;
+      margin: 25px 0;
+      border-radius: 8px;
+    }
+    
+    .z-scale {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    
+    .z-level {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 5px solid;
+      transition: transform 0.2s;
+    }
+    
+    .z-level:hover {
+      transform: translateX(10px);
+    }
+    
+    .z-elite {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: #10b981;
+    }
+    
+    .z-normal {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: #f59e0b;
+    }
+    
+    .z-frail {
+      background: rgba(239, 68, 68, 0.1);
+      border-color: #ef4444;
+    }
+    
+    .z-level strong {
+      min-width: 120px;
+      font-size: 1.1em;
+    }
+    
+    blockquote {
+      border-left: 4px solid var(--accent, #6366f1);
+      padding: 20px 30px;
+      margin: 30px 0;
+      font-style: italic;
+      font-size: 1.3em;
+      background: rgba(99, 102, 241, 0.05);
+      border-radius: 8px;
+    }
+    
+    .synthesis-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+      border: 2px solid var(--accent, #6366f1);
+      border-radius: 20px;
+      padding: 50px;
+      margin: 50px 0;
+      text-align: center;
+    }
+    
+    .synthesis-box h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+    
+    .synthesis-box p {
+      font-size: 1.2em;
+      line-height: 2;
+    }
+    
+    .emphasis {
+      color: var(--accent, #6366f1);
+      font-weight: 700;
+    }
+    
+    code {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent, #6366f1);
+    }
+    
+    .data-schema {
+      background: rgba(0,0,0,0.3);
+      padding: 25px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 0.9em;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<!-- body[header, main, footer] -->
+<body>
+  <div class="scroll-indicator"><div class="scroll-progress"></div></div>
+  <div class="bg-pattern"></div>
+  <!-- header, main, footer -->
+  <header class="header">
+    <div class="nav-container wrap-max">
+      <img src="https://abikesa.github.io/logos/assets/ukubona-dark.png"
+           alt="Ukubona LLC Logo"
+           id="logo"
+           class="logo" />
+
+      <div class="top-right">
+        <ul class="nav-links">
+          <li><a href="https://ukb-dt.github.io/canon-00/" class="nav-link" data-nav="home">Home</a></li>
+        </ul>
+
+        <button class="menu-icon" id="menuIcon" role="button" aria-label="Open navigation menu" aria-expanded="false">
+          <div></div><div></div><div></div>
+          <div></div><div></div><div></div>
+          <div></div><div></div><div></div>
+        </button>
+
+        <button id="toggle-theme" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+    <div class="app-grid wrap-max" id="gridMenu" aria-hidden="true">
+      <a href="https://ukb-dt.github.io/penelope-01/"><div class="icon-box">🇿🇦</div>Sipho</a>
+      <a href="#"><div class="icon-box">🇿🇦</div>Thandi</a>
+      <a href="#"><div class="icon-box">🇳🇬</div>Chukwuemeka</a>
+      <a href="#"><div class="icon-box">🇳🇬</div>Aisha</a>
+      <a href="#"><div class="icon-box">🇪🇬</div>Youssef</a>
+      <a href="#"><div class="icon-box">🇪🇬</div>Nour</a>
+      <a href="#"><div class="icon-box">🇰🇪</div>Juma</a>
+      <a href="#"><div class="icon-box">🇰🇪</div>Wanjiku</a>
+      <a href="#"><div class="icon-box">🇲🇦</div>Amine</a>
+      <a href="#"><div class="icon-box">🇲🇦</div>Fatima</a>
+      <a href="#"><div class="icon-box">🇩🇿</div>Mohamed</a>
+      <a href="#"><div class="icon-box">🇩🇿</div>Zineb</a>
+      <a href="#"><div class="icon-box">🇪🇹</div>Dawit</a>
+      <a href="#"><div class="icon-box">🇪🇹</div>Selam</a>
+      <a href="#"><div class="icon-box">🇬🇭</div>Kofi</a>
+      <a href="#"><div class="icon-box">🇬🇭</div>Akua</a>
+      <a href="#"><div class="icon-box">🇹🇿</div>Abdallah</a>
+      <a href="#"><div class="icon-box">🇹🇿</div>Amina</a>
+      <a href="#"><div class="icon-box">🇺🇬</div>Musa</a>
+      <a href="#"><div class="icon-box">🇺🇬</div>Nakato</a>
+      <a href="#"><div class="icon-box">🇸🇳</div>Mamadou</a>
+      <a href="#"><div class="icon-box">🇸🇳</div>Fatou</a>
+      <a href="#"><div class="icon-box">🇨🇮</div>Adama</a>
+      <a href="#"><div class="icon-box">🇨🇮</div>Aminata</a>
+      <a href="#"><div class="icon-box">🇲🇱</div>Ousmane</a>
+      <a href="#"><div class="icon-box">🇲🇱</div>Mariam</a>
+      <a href="#"><div class="icon-box">🇿🇼</div>Tinashe</a>
+      <a href="#"><div class="icon-box">🇿🇼</div>Rudo</a>
+      <a href="#"><div class="icon-box">🇨🇩</div>Joseph</a>
+      <a href="#"><div class="icon-box">🇨🇩</div>Monique</a>
+      <a href="#"><div class="icon-box">🇨🇬</div>Élie</a>
+      <a href="#"><div class="icon-box">🇨🇬</div>Grâce</a>
+      <a href="#"><div class="icon-box">🇧🇫</div>Issouf</a>
+      <a href="#"><div class="icon-box">🇧🇫</div>Aïssata</a>
+      <a href="#"><div class="icon-box">🇲🇬</div>Rakoto</a>
+      <a href="#"><div class="icon-box">🇲🇬</div>Soa</a>
+      <a href="#"><div class="icon-box">🇳🇦</div>Johannes</a>
+      <a href="#"><div class="icon-box">🇳🇦</div>Iyaloo</a>
+      <a href="#"><div class="icon-box">🇱🇾</div>Ahmed</a>
+      <a href="#"><div class="icon-box">🇱🇾</div>Salma</a>
+      <a href="#"><div class="icon-box">🇸🇩</div>Osman</a>
+      <a href="#"><div class="icon-box">🇸🇩</div>Hiba</a>
+      <a href="#"><div class="icon-box">🇱🇸</div>Teboho</a>
+      <a href="#"><div class="icon-box">🇱🇸</div>Mpho</a>
+      <a href="#"><div class="icon-box">🇱🇷</div>Prince</a>
+      <a href="#"><div class="icon-box">🇱🇷</div>Comfort</a>
+      <a href="#"><div class="icon-box">🇹🇬</div>Kodjo</a>
+      <a href="#"><div class="icon-box">🇹🇬</div>Akou</a>
+      <a href="#"><div class="icon-box">🇧🇮</div>Éric</a>
+      <a href="#"><div class="icon-box">🇧🇮</div>Vestine</a>
+      <a href="#"><div class="icon-box">🇷🇼</div>Eric</a>
+      <a href="#"><div class="icon-box">🇷🇼</div>Uwase</a>
+      <a href="#"><div class="icon-box">🇸🇿</div>Mfundo</a>
+      <a href="#"><div class="icon-box">🇸🇿</div>Lindiwe</a>
+      <a href="#"><div class="icon-box">🇨🇲</div>Franck</a>
+      <a href="#"><div class="icon-box">🇨🇲</div>Marie</a>
+      <a href="#"><div class="icon-box">🇬🇲</div>Lamin</a>
+      <a href="#"><div class="icon-box">🇬🇲</div>Isatou</a>
+      <a href="#"><div class="icon-box">🇸🇱</div>Alpha</a>
+      <a href="#"><div class="icon-box">🇸🇱</div>Zainab</a>
+      <a href="#"><div class="icon-box">🇲🇷</div>Mohamed</a>
+      <a href="#"><div class="icon-box">🇲🇷</div>Khadija</a>
+      <a href="#"><div class="icon-box">🇧🇯</div>Émile</a>
+      <a href="#"><div class="icon-box">🇧🇯</div>Victoire</a>
+      <a href="#"><div class="icon-box">🇬🇳</div>Ibrahima</a>
+      <a href="#"><div class="icon-box">🇬🇳</div>Hawa</a>
+      <a href="#"><div class="icon-box">🇹🇳</div>Karim</a>
+      <a href="#"><div class="icon-box">🇹🇳</div>Yasmine</a>
+      <a href="#"><div class="icon-box">🇪🇷</div>Mikael</a>
+      <a href="#"><div class="icon-box">🇪🇷</div>Elsa</a>
+      <a href="#"><div class="icon-box">🇨🇫</div>Paul</a>
+      <a href="#"><div class="icon-box">🇨🇫</div>Bernadette</a>
+      <a href="#"><div class="icon-box">🇸🇴</div>Abdi</a>
+      <a href="#"><div class="icon-box">🇸🇴</div>Hodan</a>
+      <a href="#"><div class="icon-box">🇨🇻</div>João</a>
+      <a href="#"><div class="icon-box">🇨🇻</div>Ana</a>
+      <a href="#"><div class="icon-box">🇩🇯</div>Hassan</a>
+      <a href="#"><div class="icon-box">🇩🇯</div>Mouna</a>
+      <a href="#"><div class="icon-box">🇬🇶</div>Teodoro</a>
+      <a href="#"><div class="icon-box">🇬🇶</div>Esperanza</a>
+      <a href="#"><div class="icon-box">🇲🇺</div>Rajesh</a>
+      <a href="#"><div class="icon-box">🇲🇺</div>Priya</a>
+      <a href="#"><div class="icon-box">🇸🇨</div>Jean</a>
+      <a href="#"><div class="icon-box">🇸🇨</div>Marie</a>
+      <a href="#"><div class="icon-box">🇸🇹</div>António</a>
+      <a href="#"><div class="icon-box">🇸🇹</div>Maria</a>
+      <a href="#"><div class="icon-box">🇲🇼</div>Chisomo</a>
+      <a href="#"><div class="icon-box">🇲🇼</div>Tionge</a>
+      <a href="#"><div class="icon-box">🇳🇪</div>Abdoul</a>
+      <a href="#"><div class="icon-box">🇳🇪</div>Hadiza</a>
+    </div>
+  </header>
+
+  <!-- main[sections], footer -->
+  <main class="page wrap-max">
+
+    <div class="hero-section">
+      <h1>Ukubona / Ivyabona</h1>
+      <p>To See / To Witness: The Z-Trajectory of Life</p>
+    </div>
+
+    <div class="equation-box">
+      $$
+      \text{LS:}\ (E,x)
+      \;\longrightarrow\;
+      \text{UB:}\ E(t\mid x)+\epsilon
+      \;\longrightarrow\;
+      \text{SGD:}\ z = \frac{\frac{dE}{dt} - \mu}{\sigma}
+      \;\longrightarrow\;
+      \text{UI/UX:}\ \text{Trajectory}(z)
+      \;\longrightarrow\;
+      \text{EC:}\ \int \text{Will}\, dt
+      $$
+    </div>
+
+    <section class="card">
+      <h1>The Revelation: Z-Trajectory is Everything</h1>
+      <p>
+        You have discovered the invariant that collapses all of human vitality into a single, continuous measure. 
+        Not mass. Not speed. Not even raw power. But the <span class="emphasis">normalized trajectory of discharge capacity</span> 
+        across the entire lifespan.
+      </p>
+      
+      <div class="highlight-box">
+        <strong>The z-trajectory is the differential geometry of a life.</strong><br><br>
+        It is the curve that shows not where you are, but <em>how you are moving through the basin of human possibility</em>.
+      </div>
+      
+      <p>
+        While others measure snapshots (weight, BMI, grip strength), you measure <strong>slope</strong>. 
+        While they diagnose states (frail/not frail), you diagnose <strong>momentum</strong>. 
+        While they look backward at damage done, you look <strong>forward at capacity remaining</strong>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h1>The Z-Scale: From Elite to Collapse</h1>
+      
+      <div class="z-scale">
+        <div class="z-level z-elite">
+          <strong>z > +1.0</strong>
+          <span>Elite / Deep Basin — Robust capacity to discharge strength</span>
+        </div>
+        
+        <div class="z-level z-normal">
+          <strong>z = 0.0</strong>
+          <span>Normative Aging — Moving with the population mean</span>
+        </div>
+        
+        <div class="z-level z-frail">
+          <strong>z < -2.0</strong>
+          <span>The "Fried Line" — Functional collapse imminent</span>
+        </div>
+      </div>
+      
+      <p>
+        But here's the magic: <strong>z is not the destination</strong>. The trajectory <code>dz/dt</code> is.
+      </p>
+      
+      <div class="highlight-box">
+        An 86-year-old at z = +1.5 with <code>dz/dt = -0.1</code> (slow decline) has a deeper basin than 
+        a 45-year-old at z = +0.2 with <code>dz/dt = -0.3</code> (rapid decay).
+      </div>
+    </section>
+
+    <section class="card">
+      <h1>The Paradigm Shift</h1>
+      
+      <div class="grid-2">
+        <div>
+          <h3>What Others Measure</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li>✗ Weight (static mass)</li>
+            <li>✗ BMI (ratio of statics)</li>
+            <li>✗ Grip strength (snapshot)</li>
+            <li>✗ Gait speed (single moment)</li>
+            <li>✗ Hydration status (input obsession)</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3>What Ukubona Measures</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li>✓ <strong>z(t)</strong> — Position in basin</li>
+            <li>✓ <strong>dz/dt</strong> — Velocity of change</li>
+            <li>✓ <strong>d²z/dt²</strong> — Acceleration (collapse warning)</li>
+            <li>✓ <strong>Basin depth</strong> — Resilience to perturbation</li>
+            <li>✓ <strong>Discharge capacity</strong> — Will to Power</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h1>Why This Changes Everything</h1>
+      
+      <h3>1. Cradle to Grave Continuity</h3>
+      <p>
+        A neonate generating 2W and a grandfather generating 77W can both be at <code>z = +1.0</code>. 
+        The math doesn't break. The metric doesn't saturate. The same framework scales across 
+        <strong>100 years of human life</strong> without changing units or models.
+      </p>
+      
+      <h3>2. Early Warning System</h3>
+      <p>
+        Frailty phenotypes detect collapse <em>after it's happened</em>. Z-trajectory detects the 
+        <strong>curvature change before the fall</strong>. When <code>d²z/dt²</code> goes negative, 
+        intervention is possible. When z crosses -2.0, it's often too late.
+      </p>
+      
+      <h3>3. Personalized Baselines</h3>
+      <p>
+        No more comparing yourself to arbitrary population averages. Your digital twin knows 
+        <em>your</em> historical z-trajectory. It doesn't care if you're "normal for your age"—it 
+        cares if you're <strong>declining faster than your own past predicts</strong>.
+      </p>
+      
+      <h3>4. The Nietzschean Upgrade</h3>
+      <p>
+        This isn't wellness. This isn't health optimization. This is measuring 
+        <span class="emphasis">the Will to Power made quantitative</span>. The capacity to discharge. 
+        The depth of your basin. The steepness you can sustain without collapse.
+      </p>
+    </section>
+
+    <blockquote>
+      "We do not live in landscapes. We live in the basins our motion reveals."<br>
+      — And the z-trajectory is the map of that motion.
+    </blockquote>
+
+    <section class="card">
+      <h1>The Data Schema: Operationalizing the Vision</h1>
+      
+      <div class="data-schema">
+{<br>
+&nbsp;&nbsp;"twin_id": "ukb_alpha_001",<br>
+&nbsp;&nbsp;"current_state": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"age_days": 31390,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"z_score": 1.5,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"dz_dt": -0.08,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"basin_depth": 3.2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"sustained_wattage": 77.0<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"trajectory": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"slope_30d": -0.05,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"slope_90d": -0.03,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"acceleration": -0.002,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"risk_horizon_days": 547<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"phenotype": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"fried_status": "Robust",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"will_to_power_index": 0.88,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"collapse_probability_6mo": 0.02<br>
+&nbsp;&nbsp;}<br>
+}
+      </div>
+    </section>
+
+    <div class="synthesis-box">
+      <h2>The Final Integration</h2>
+      <p>
+        You have moved from a literal <span class="emphasis">Stone</span> (static weight) to a 
+        <span class="emphasis">Nietzschean Discharge</span> (dynamic wattage).<br><br>
+        
+        <strong>Fried FP²</strong> gives you the clinical rigor.<br>
+        <strong>Z-Scores</strong> give you the cradle-to-grave scale.<br>
+        <strong>Will to Power</strong> gives you the philosophical "Why."<br>
+        <strong>Phase III Optimization</strong> gives you the competitive edge.<br><br>
+        
+        But it is the <span class="emphasis">z-trajectory</span>—the continuous, personalized, 
+        predictive curve of vitality—that makes this <strong>Ukubona</strong>: to truly see, 
+        and <strong>Ivyabona</strong>: to witness yourself in the mirror of your own becoming.
+      </p>
+    </div>
+
+    <section class="card">
+      <h1>What This Means Practically</h1>
+      <p style="font-size: 1.2em; text-align: center; margin: 30px 0;">
+        <strong>Stop measuring the bucket. Start measuring the flow.</strong>
+      </p>
+      
+      <p>
+        Your digital twin doesn't ask: "Did you drink enough water?" or "Did you hit your protein target?"<br><br>
+        
+        It asks: <span class="emphasis">"Can you still discharge 120W for 45 minutes? And is that 
+        capacity holding, growing, or decaying?"</span><br><br>
+        
+        Everything else—nutrition, hydration, sleep, medication—is justified only insofar as it 
+        <strong>maintains or increases your z-trajectory</strong>.
+      </p>
+    </section>
+
+  </main>
+  <!-- footer -->
+  <footer class="footer">
+    <div class="wrap-max footer-wrap">
+      <div class="footer-chorus" aria-label="Ukubona chorus">
+        <span class="chip">"Ukubona" means to see</span>
+        <span class="chip"><em>"Ivyabona" means to witness</em> —</span>
+        <span class="chip">to look into the mirror.</span>
+      </div>
+      <div class="footer-extra" hidden></div>
+      <div class="footer-footnote" aria-live="polite">
+        <em style="opacity: 0.7;">The z-trajectory is that mirror, made mathematical.</em>
+      </div>
+      <div class="footer-micro" style="margin-top:12px">
+        <p>© 2025 Ukubona LLC · <a href="/assets/files/ukubona.vcf" download>vCard</a> · Johns Hopkins Enterprise Vendor (June 2025)</p>
+      </div>
+    </div>
+  </footer>
+  <script src="ukhona/js/main.js"></script>
+</body>
+</html>
